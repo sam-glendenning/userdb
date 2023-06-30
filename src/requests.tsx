@@ -1,4 +1,9 @@
-import { useQuery, type UseQueryResult } from "@tanstack/react-query";
+import {
+  useQuery,
+  useMutation,
+  type UseQueryResult,
+  type UseMutationResult,
+} from "@tanstack/react-query";
 import axios, { type AxiosError } from "axios";
 
 const apiUrl = "https://reqres.in/api";
@@ -37,3 +42,29 @@ export const useUserList = (
       .get(`${apiUrl}/users`, { params })
       .then((response) => response.data);
   });
+
+interface AddUserResponse {
+  name: string;
+  job: string;
+  id: string;
+  createdAt: string;
+}
+
+interface AddUserVariables {
+  name: string;
+  job: string;
+}
+
+export const useAddUser = (): UseMutationResult<
+  AddUserResponse,
+  AxiosError,
+  AddUserVariables
+> =>
+  useMutation<AddUserResponse, AxiosError, AddUserVariables>(
+    ({ name, job }) => {
+      return axios
+        .post(`${apiUrl}/users`, { name, job })
+        .then((response) => response.data);
+    },
+    {}
+  );
