@@ -38,9 +38,9 @@ export const useUserList = (
       page: pageParam.toString(),
       per_page: perPageParam.toString(),
     });
-    return axios
-      .get(`${apiUrl}/users`, { params })
-      .then((response) => response.data);
+    return axios.get(`${apiUrl}/users`, { params }).then((response) => {
+      return response.data;
+    });
   });
 
 interface AddUserResponse {

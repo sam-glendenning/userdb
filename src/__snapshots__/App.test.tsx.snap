@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <p>
+      User Database!
+    </p>
+    <br />
+    <div>
+      <p>
+        Here are all the current users (this list from the API does not update):
+      </p>
+      <br />
+      <p>
+        1. michael.lawson@reqres.in
+      </p>
+      <p>
+        2. lindsay.ferguson@reqres.in
+      </p>
+      <p>
+        3. tobias.funke@reqres.in
+      </p>
+      <p>
+        4. byron.fields@reqres.in
+      </p>
+      <p>
+        5. george.edwards@reqres.in
+      </p>
+      <p>
+        6. rachel.howell@reqres.in
+      </p>
+    </div>
+    <div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        Add User
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        Remove User
+      </button>
+    </div>
+    <br />
+  </div>
+</DocumentFragment>
+`;

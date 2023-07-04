@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+// import "./App.css";
 import RemoveUserbox from "./removeUserBox";
 import AddUserBox from "./addUserBox";
 import { useUserList } from "./requests";
@@ -28,8 +28,8 @@ const App = (): React.ReactElement => {
         {usersError && <p>Error fetching users!</p>}
         {users &&
           users.data.map((user, i) => (
-            <p>
-              {i + 1}. {user.email}
+            <p key={i}>
+              {user.id}. {user.email}
             </p>
           ))}
       </div>
