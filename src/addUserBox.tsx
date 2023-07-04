@@ -1,7 +1,10 @@
 import React from "react";
 import { useAddUser } from "./requests";
+import { Button } from "@mui/material";
 
 const AddUserBox = (): React.ReactElement => {
+  const [dialogueOpen, setDialogueOpen] = React.useState<boolean>(false);
+
   const [addName, setAddName] = React.useState<string>("");
   const [addJob, setAddJob] = React.useState<string>("");
 
@@ -30,30 +33,39 @@ const AddUserBox = (): React.ReactElement => {
 
   return (
     <div>
-      <p>Enter details of the user you'd like to add</p>
-      <form onSubmit={handleSubmitAddUser}>
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          onChange={handleAddNameChange}
-          value={addName}
-        />
-        <br />
-        <label>Job</label>
-        <input
-          type="text"
-          name="job"
-          onChange={handleAddJobChange}
-          value={addJob}
-        />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
-      {addUserLoading && <p>Submitting...</p>}
-      {addUserError && <p>Error submitting form!</p>}
-      {addUserSuccess && <p>Successfully added user!</p>}
-      {addUserResponse && addUserResponse.name}
+      {!dialogueOpen && (
+        <Button onClick={() => setDialogueOpen(true)}>Add User</Button>
+      )}
+      {dialogueOpen && (
+        <div>
+          <p>Enter details of the user you'd like to add</p>
+          <form onSubmit={handleSubmitAddUser}>
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              onChange={handleAddNameChange}
+              value={addName}
+            />
+            <br />
+            <label>Job</label>
+            <input
+              type="text"
+              name="job"
+              onChange={handleAddJobChange}
+              value={addJob}
+            />
+            <br />
+            <Button type="submit" onClick={handleSubmitAddUser}>
+              Add
+            </Button>
+          </form>
+          {addUserLoading && <p>Submitting...</p>}
+          {addUserError && <p>Error submitting form!</p>}
+          {addUserSuccess && <p>Successfully added user!</p>}
+          {addUserResponse && addUserResponse.name}
+        </div>
+      )}
     </div>
   );
 };

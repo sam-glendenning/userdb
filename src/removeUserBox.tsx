@@ -1,9 +1,16 @@
 import React from "react";
 import { useRemoveUser } from "./requests";
 import { useQueryClient } from "@tanstack/react-query";
+import { Button } from "@mui/material";
 
-const RemoveUserbox = (): React.ReactElement => {
+const RemoveUserbox = ({
+  numberOfUsers,
+}: {
+  numberOfUsers: number;
+}): React.ReactElement => {
   const queryClient = useQueryClient();
+
+  const [dialogueOpen, setDialogueOpen] = React.useState<boolean>(false);
 
   const [removeIndex, setRemoveIndex] = React.useState<number>(1);
 
@@ -34,19 +41,31 @@ const RemoveUserbox = (): React.ReactElement => {
 
   return (
     <div>
-      <p>Enter the index of the user you'd like to remove:</p>
-      <form onSubmit={handleSubmitRemoveUser}>
-        <input
-          type="number"
-          name="removeIndex"
-          onChange={handleRemoveIndexChange}
-          value={removeIndex}
-        />
-        <input type="submit" value="Submit" />
-      </form>
-      {removeUserLoading && <p>Submitting...</p>}
-      {removeUserError && <p>Error submitting form!</p>}
-      {removeUserResponse && <p>Success!</p>}
+      {!dialogueOpen && (
+        <Button onClick={() => setDialogueOpen(true)}>Remove User</Button>
+      )}
+      {dialogueOpen && (
+        <div>
+          <p>Enter the number of the user you'd like to remove</p>
+          <form onSubmit={handleSubmitRemoveUser}>
+            <input
+              type="number"
+              name="removeIndex"
+              min={1}
+              max={numberOfUsers}
+              onChange={handleRemoveIndexChange}
+              value={removeIndex}
+            />
+            <br />
+            <Button type="submit" onClick={handleSubmitRemoveUser}>
+              Remove
+            </Button>
+          </form>
+          {removeUserLoading && <p>Submitting...</p>}
+          {removeUserError && <p>Error submitting form!</p>}
+          {removeUserResponse && <p>Success!</p>}
+        </div>
+      )}
     </div>
   );
 };
