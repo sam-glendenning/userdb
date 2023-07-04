@@ -55,6 +55,10 @@ interface AddUserVariables {
   job: string;
 }
 
+interface RemoveUserVariables {
+  index: number;
+}
+
 export const useAddUser = (): UseMutationResult<
   AddUserResponse,
   AxiosError,
@@ -65,6 +69,14 @@ export const useAddUser = (): UseMutationResult<
       return axios
         .post(`${apiUrl}/users`, { name, job })
         .then((response) => response.data);
-    },
-    {}
+    }
   );
+
+export const useRemoveUser = (): UseMutationResult<
+  {},
+  AxiosError,
+  RemoveUserVariables
+> =>
+  useMutation<{}, AxiosError, RemoveUserVariables>(({ index }) => {
+    return axios.delete(`${apiUrl}/users/${index}`);
+  });
