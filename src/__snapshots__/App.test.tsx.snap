@@ -14,24 +14,108 @@ exports[`App renders correctly 1`] = `
         Here are all the current users (this list from the API does not update):
       </p>
       <br />
-      <p>
-        1. michael.lawson@reqres.in
-      </p>
-      <p>
-        2. lindsay.ferguson@reqres.in
-      </p>
-      <p>
-        3. tobias.funke@reqres.in
-      </p>
-      <p>
-        4. byron.fields@reqres.in
-      </p>
-      <p>
-        5. george.edwards@reqres.in
-      </p>
-      <p>
-        6. rachel.howell@reqres.in
-      </p>
+      <table>
+        <tbody>
+          <tr>
+            <th>
+              Id
+            </th>
+            <th>
+              First Name
+            </th>
+            <th>
+              Last Name
+            </th>
+            <th>
+              Email
+            </th>
+          </tr>
+          <tr>
+            <td>
+              1
+            </td>
+            <td>
+              Michael
+            </td>
+            <td>
+              Lawson
+            </td>
+            <td>
+              michael.lawson@reqres.in
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2
+            </td>
+            <td>
+              Lindsay
+            </td>
+            <td>
+              Ferguson
+            </td>
+            <td>
+              lindsay.ferguson@reqres.in
+            </td>
+          </tr>
+          <tr>
+            <td>
+              3
+            </td>
+            <td>
+              Tobias
+            </td>
+            <td>
+              Funke
+            </td>
+            <td>
+              tobias.funke@reqres.in
+            </td>
+          </tr>
+          <tr>
+            <td>
+              4
+            </td>
+            <td>
+              Byron
+            </td>
+            <td>
+              Fields
+            </td>
+            <td>
+              byron.fields@reqres.in
+            </td>
+          </tr>
+          <tr>
+            <td>
+              5
+            </td>
+            <td>
+              George
+            </td>
+            <td>
+              Edwards
+            </td>
+            <td>
+              george.edwards@reqres.in
+            </td>
+          </tr>
+          <tr>
+            <td>
+              6
+            </td>
+            <td>
+              Rachel
+            </td>
+            <td>
+              Howell
+            </td>
+            <td>
+              rachel.howell@reqres.in
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div>
       <button
